@@ -11,7 +11,7 @@ class Solution(object):
             if (nums[lp] == 0 and nums[rp] != 0):
                 nums[lp],nums[rp] = nums[rp], nums[lp]
                 lp += 1
-            elif (nums[lp] != 0 and nums[rp] != 0):
+            elif (nums[lp] != 0):
                 lp += 1
             rp += 1
         return nums
