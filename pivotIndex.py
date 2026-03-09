@@ -4,18 +4,28 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        runningSum = 0
-        totalSum = 0
-        for i in range(len(nums)):
-            totalSum += nums[i]
-        for i in range(len(nums)):
-            if 2 * runningSum == (totalSum - nums[i]):
-                return i
-            runningSum += nums[i]
-        return -1
+        # runningSum = 0
+        # totalSum = 0
+        # for i in range(len(nums)):
+        #     totalSum += nums[i]
+        # for i in range(len(nums)):
+        #     if 2 * runningSum == (totalSum - nums[i]):
+        #         return i
+        #     runningSum += nums[i]
+        # return -1
 
+        totalSum = sum(nums)
+        leftSum = 0
+        for i in range(len(nums)):
+            rightSum = totalSum - leftSum - nums[i]
+            if leftSum == rightSum:
+                return i
+            else:
+                leftSum += nums[i]
+        return -1
 
 sol = Solution()
 print(sol.pivotIndex([1, 7, 3, 6, 5, 6]))  # Output: 3
 print(sol.pivotIndex([1, 2, 3]))  # Output: -1
-print(sol.pivotIndex([-1,-1,-1,-1,-1,-1]))
+print(sol.pivotIndex([-1,-1,-1,-1,-1,-1, -1])) # Output: 3
+print(sol.pivotIndex([2, 1, -1])) # Output: 0

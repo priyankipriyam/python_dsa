@@ -15,7 +15,7 @@ class Solution(object):
                 break
             else:
                 digits[last] = 0
-            last -= 1
+                last -= 1
 
         return digits 
 
