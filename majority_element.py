@@ -4,18 +4,31 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        
-        mp = {}
+        majority = len(nums)/2
+        hashmap = {}
         for i in range(len(nums)):
-            ##hashmap code
-            if nums[i] in mp:
-                mp[nums[i]] += 1
+            if nums[i] in hashmap:
+                hashmap[nums[i]] += 1
             else:
-                mp[nums[i]] = 1
-            if mp[nums[i]] * 2 > len(nums):
-                return nums[i]
-
+                hashmap[nums[i]] = 1
+        
+            if hashmap[nums[i]] > majority:
+                    return nums[i]
+            
         return -1
+
+        
+        # mp = {}
+        # for i in range(len(nums)):
+        #     ##hashmap code
+        #     if nums[i] in mp:
+        #         mp[nums[i]] += 1
+        #     else:
+        #         mp[nums[i]] = 1
+        #     if mp[nums[i]] * 2 > len(nums):
+        #         return nums[i]
+
+        # return -1
     
 
 #Boyer-Moore Algorithm
